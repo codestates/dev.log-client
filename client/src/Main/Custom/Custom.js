@@ -18,7 +18,7 @@ class Custom extends React.Component {
   handleRadio(event) {
     let obj = {};
     Object.keys(this.state.radioGroup).map((ele) => {
-      obj[ele] = false;
+      return (obj[ele] = false);
     });
     obj[event.target.value] = true;
     this.setState({

@@ -3,12 +3,13 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Listup from "../src/Main/Listup";
 import Login from "../src/Login";
 import Signup from "../src/Signup";
+import Mypage from "./Mypage";
 import "./App.css";
 import axios from "axios";
 axios.defaults.withCredentials = "include";
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       isLogin: false,
       token: "",
@@ -16,20 +17,11 @@ class App extends React.Component {
         userId: "",
         username: "",
       },
-      categoryId: null,
-      contentsList: [
-        {
-          id: "", //postId
-          categoryId: "",
-          username: "",
-          title: "",
-          message: "",
-          view_count: "",
-        },
-      ],
+      isMypage: false,
     };
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.getUserData = this.getUserData.bind(this);
+    this.handleMypage = this.handleMypage.bind(this);
   }
 
   //로그인 시 userInfo를 끌어올리는 함수
@@ -47,10 +39,20 @@ class App extends React.Component {
       this.setState({ isLogin: !this.state.isLogin });
     }, 500);
   };
+
+  //마이페이지 바꾸기
+  handleMypage = () => {
+    this.setState({ isMypage: !this.state.isMypage });
+    console.log("마이페이지");
+  };
+
   render() {
-    const { isLogin, token, userInfo } = this.state;
+    const { isLogin, token, userInfo, isMypage } = this.state;
+
     return (
       <Switch>
+        {console.log("RENDERED app.js")}
+
         {isLogin ? (
           <Route
             path="/main"
@@ -59,14 +61,38 @@ class App extends React.Component {
                 isLogin={isLogin}
                 userInfo={userInfo}
                 token={token}
+                isMypage={isMypage}
                 getUserData={this.getUserData}
                 handleLoginClick={this.handleLoginClick}
+                handleMypage={this.handleMypage}
               />
             )}
           />
         ) : (
           ""
         )}
+        <Route
+          path="/mypage"
+          render={() => {
+            return isMypage ? (
+              <Mypage
+                isLogin={isLogin}
+                token={token}
+                userInfo={userInfo}
+                isMypage={isMypage}
+                handleMypage={this.handleMypage}
+              />
+            ) : (
+              <Listup
+                isLogin={isLogin}
+                token={token}
+                userInfo={userInfo}
+                getUserData={this.getUserData}
+                handleLoginClick={this.handleLoginClick}
+              />
+            );
+          }}
+        />
         <Route
           path="/login"
           render={() => (
@@ -80,6 +106,7 @@ class App extends React.Component {
           )}
         />
         <Route path="/signup" render={() => <Signup />} />
+
         <Route
           path="/"
           render={() => {

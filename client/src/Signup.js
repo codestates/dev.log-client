@@ -112,7 +112,7 @@ class Signup extends React.Component {
               ></input>
               {this.checkUsername(this.state.username) ? (
                 <span style={{ color: "green" }}>
-                  <img src="tick.png" width="15em" />
+                  <img src="tick.png" width="15em" alt="" />
                   확인
                 </span>
               ) : (
@@ -130,7 +130,7 @@ class Signup extends React.Component {
               ></input>
               {this.checkPassword(this.state.password) ? (
                 <span style={{ color: "green" }}>
-                  <img src="tick.png" width="15em" />
+                  <img src="tick.png" width="15em" alt="" />
                   확인
                 </span>
               ) : (
@@ -151,7 +151,7 @@ class Signup extends React.Component {
                 this.state.password2
               ) ? (
                 <span style={{ color: "green" }}>
-                  <img src="tick.png" width="15em" />
+                  <img src="tick.png" width="15em" alt="" />
                   확인
                 </span>
               ) : (
