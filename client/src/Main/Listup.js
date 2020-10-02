@@ -9,7 +9,6 @@ import Mypage from "../Mypage";
 import Custom from "../Main/Custom/Custom";
 import axios from "axios";
 axios.defaults.withCredentials = "include";
-
 class Listup extends React.Component {
   constructor(props) {
     super();
@@ -19,25 +18,21 @@ class Listup extends React.Component {
       contentsList: [],
       clickedContent: {},
       comments: [],
-
       newPost: false,
       editBtn: false,
       customListOp: "scrap",
       // 다시 목록으로 갔을 때 reset 설정
       // post 전송 후 리스트 리프래시
     };
-
     this.handleInputCategory = this.handleInputCategory.bind(this);
     this.handleContentList = this.handleContentList.bind(this);
     this.handleClickedContent = this.handleClickedContent.bind(this);
     this.handleResetClickedContent = this.handleResetClickedContent.bind(this);
-
     this.clickNewMessage = this.clickNewMessage.bind(this);
     this.clickEditBtn = this.clickEditBtn.bind(this);
     this.handleSearchList = this.handleSearchList.bind(this);
     this.handleSortList = this.handleSortList.bind(this);
   }
-
   // category 관련 (1) 전체 글 (2) 카테고리 필터링
   componentDidMount() {
     this.handleContentList(this.state.categoryId);
@@ -65,7 +60,6 @@ class Listup extends React.Component {
           console.log(res.data);
         });
   }
-
   // 선택한 content 정보 -> 메인에 뿌릴 정보 모두
   handleClickedContent(data) {
     this.setState({ clickedContent: data }, () => {
@@ -78,21 +72,17 @@ class Listup extends React.Component {
         });
     });
   }
-
   handleResetClickedContent() {
     this.setState({ clickedContent: {} });
     this.setState({ comments: [] });
   }
-
   //새글 쓰기 리다이렉트
   clickNewMessage() {
     this.setState({ newPost: !this.state.newPost });
   }
-
   clickEditBtn() {
     this.setState({ editBtn: !this.state.editBtn });
   }
-
   //검색된 contentList 불러오는 함수
   handleSearchList(value) {
     axios.get(`https://devyeon.com/search/title/${value}`).then((res) => {
@@ -100,7 +90,6 @@ class Listup extends React.Component {
       this.setState({ contentsList: res.data });
     });
   }
-
   //선택된 정렬 기준으로 contentList 불러오는 함수
   handleSortList = (e) => {
     // axios.get(`http://localhost:4000/posts/sort/${e.target.value}`)
@@ -112,10 +101,8 @@ class Listup extends React.Component {
         this.setState({ contentsList: res.data });
       });
   };
-
   render() {
     const { isLogin, isMypage, token, userInfo, handleMypage } = this.props;
-
     const {
       category,
       categoryId,
@@ -126,7 +113,6 @@ class Listup extends React.Component {
       editBtn,
       newPost,
     } = this.state;
-
     const {
       handleInputCategory,
       handleContentList,
@@ -137,7 +123,6 @@ class Listup extends React.Component {
       handleSearchList,
       handleSortList,
     } = this;
-
     return (
       <div id="outer">
         {console.log(this.state.clickedContent, this.state.comments)}
@@ -157,10 +142,8 @@ class Listup extends React.Component {
           handleSearchList={handleSearchList}
           handleMypage={handleMypage}
         />
-
         <div className="container" id="main">
           {newPost ? <Redirect to="/main/post" /> : ""}
-
           <Category
             isLogin={isLogin}
             token={token}
@@ -193,7 +176,6 @@ class Listup extends React.Component {
                 />
               )}
             ></Route>
-
             <Route
               exact
               path="/main/detail"
@@ -227,7 +209,6 @@ class Listup extends React.Component {
               )}
             ></Route>
           </Switch>
-
           <Custom
             token={token}
             userInfo={userInfo}
