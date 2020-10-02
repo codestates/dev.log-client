@@ -47,6 +47,7 @@ class Listup extends React.Component {
     this.clickEditBtn = this.clickEditBtn.bind(this);
     this.handleMypage = this.handleMypage.bind(this);
     this.handleSearchList = this.handleSearchList.bind(this);
+    this.handleSortList = this.handleSortList.bind(this);
   }
   //category state 끌어올리기
   handleInputCategory = (e) => {
@@ -113,6 +114,18 @@ class Listup extends React.Component {
     });
   };
 
+  //선택된 정렬 기준으로 contentList 불러오는 함수
+  handleSortList = (e) => {
+    // axios.get(`http://localhost:4000/posts/sort/${e.target.value}`)
+    // .then((res) => {
+    axios
+      .get(`https://devyeon.com/posts/sort/${e.target.value}`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({ contentsList: res.data });
+      });
+  };
+
   //시작하자마자 전체 데이터 뿌려주는 함수 -> 주기함수 써야 함.
   componentDidMount() {
     this.handleGetDefault();
@@ -147,6 +160,7 @@ class Listup extends React.Component {
       clickEditBtn,
       handleMypage,
       handleSearchList,
+      handleSortList,
     } = this;
 
     return (
@@ -199,6 +213,7 @@ class Listup extends React.Component {
                   editBtn={editBtn}
                   handleClickedContent={handleClickedContent}
                   clickNewMessage={clickNewMessage}
+                  handleSortList={handleSortList}
                 />
               )}
             ></Route>
