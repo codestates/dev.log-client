@@ -32,6 +32,7 @@ class Contents extends React.Component {
             <option value="commentCount">댓글수</option>
           </select>
         </div>
+
         <ContentsEntry
           contentsList={contentsList}
           clickedContent={clickedContent}

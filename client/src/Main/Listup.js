@@ -99,6 +99,23 @@ class Listup extends React.Component {
       console.log(res.data);
       this.setState({ contentsList: res.data });
     });
+  };
+
+  //선택된 정렬 기준으로 contentList 불러오는 함수
+  handleSortList = (e) => {
+    // axios.get(`http://localhost:4000/posts/sort/${e.target.value}`)
+    // .then((res) => {
+    axios
+      .get(`https://devyeon.com/posts/sort/${e.target.value}`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({ contentsList: res.data });
+      });
+  };
+
+  //시작하자마자 전체 데이터 뿌려주는 함수 -> 주기함수 써야 함.
+  componentDidMount() {
+    this.handleGetDefault();
   }
 
   //선택된 정렬 기준으로 contentList 불러오는 함수
@@ -187,6 +204,7 @@ class Listup extends React.Component {
                   handleClickedContent={handleClickedContent}
                   handleResetClickedContent={handleResetClickedContent}
                   clickNewMessage={clickNewMessage}
+                  handleSortList={handleSortList}
                   clickEditBtn={clickEditBtn}
                   handleSortList={handleSortList}
                   handleSearchList={handleSearchList}
