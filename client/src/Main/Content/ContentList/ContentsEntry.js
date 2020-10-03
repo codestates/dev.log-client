@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect, withRouter } from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components";
 axios.defaults.withCredentials = "include";
 
 /// 실제 글 확인 페이지

@@ -1,12 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 import CatgeoryEntry from "./CategoryEntry";
+
 const Catgeory = ({ category, categoryId, handleInputCategory }) => (
-  <div className="container" id="category">
+  <CategoryStyle id="category">
     <CatgeoryEntry
       categoryId={categoryId}
       category={category}
       handleInputCategory={handleInputCategory}
     />
-  </div>
+  </CategoryStyle>
 );
+
 export default Catgeory;
+export const CategoryStyle = styled.div`
+  grid-column: 1 / 2;
+`;

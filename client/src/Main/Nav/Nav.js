@@ -4,12 +4,13 @@ import User from "./User";
 import Search from "./Search";
 import styled from "styled-components";
 
-const Navbar = styled.nav`
+export const Navbar = styled.nav`
+  grid-column: 1 / 4;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #02380e;
-  padding: 20px 12px;
+  padding: 30px 12px;
 `;
 const Nav = ({
   isLogin,

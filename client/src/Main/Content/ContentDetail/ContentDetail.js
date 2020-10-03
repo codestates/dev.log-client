@@ -2,7 +2,12 @@ import React from "react";
 import Comment from "./Comment";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import styled from "styled-components";
 axios.defaults.withCredentials = "include";
+
+export const ContentDetailstyle = styled.div`
+  grid-column: 2 / 3;
+`;
 
 class ContentDetail extends React.Component {
   constructor(props) {
@@ -44,7 +49,7 @@ class ContentDetail extends React.Component {
       handleResetClickedContent,
     } = this.props;
     return (
-      <div className="container" id="content">
+      <ContentDetailstyle id="content">
         <div className="contentArea">
           <div className="contentHeader">
             <div className="contentUsername">
@@ -93,7 +98,7 @@ class ContentDetail extends React.Component {
         >
           목록으로
         </button>
-      </div>
+      </ContentDetailstyle>
     );
   }
 }

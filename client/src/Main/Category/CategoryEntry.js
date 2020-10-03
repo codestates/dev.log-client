@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import styled from "styled-components";
 class CategoryEntry extends React.Component {
   constructor(props) {
     super();
@@ -8,7 +9,7 @@ class CategoryEntry extends React.Component {
     const { handleInputCategory } = this.props;
     const list = ["전체보기", "Grapefruit", "Lime", "Coconut", "Mango"];
     return (
-      <>
+      <CategoryEntryStyle>
         {list.map((ele) => {
           return (
             <div
@@ -20,8 +21,14 @@ class CategoryEntry extends React.Component {
             </div>
           );
         })}
-      </>
+      </CategoryEntryStyle>
     );
   }
 }
 export default withRouter(CategoryEntry);
+
+export const CategoryEntryStyle = styled.div`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+`;

@@ -7,8 +7,15 @@ import Post from "../Main/Content/Post";
 import ContentDetail from "../Main/Content/ContentDetail/ContentDetail";
 import Mypage from "../Mypage";
 import Custom from "../Main/Custom/Custom";
+import styled from "styled-components";
 import axios from "axios";
 axios.defaults.withCredentials = "include";
+
+export const Outer = styled.div`
+  display: grid;
+  grid-template: 1fr auto 1fr / 1fr 1fr 1fr;
+`;
+
 class Listup extends React.Component {
   constructor(props) {
     super();
@@ -124,7 +131,7 @@ class Listup extends React.Component {
       handleSortList,
     } = this;
     return (
-      <div id="outer">
+      <Outer id="outer">
         {console.log(this.state.clickedContent, this.state.comments)}
         {isMypage ? (
           <Switch>
@@ -135,6 +142,7 @@ class Listup extends React.Component {
           <Redirect to="/main" />
         )}
         <Nav
+          id="nav"
           isLogin={isLogin}
           token={token}
           userInfo={userInfo}
@@ -142,80 +150,83 @@ class Listup extends React.Component {
           handleSearchList={handleSearchList}
           handleMypage={handleMypage}
         />
-        <div className="container" id="main">
-          {newPost ? <Redirect to="/main/post" /> : ""}
-          <Category
-            isLogin={isLogin}
-            token={token}
-            userInfo={userInfo}
-            categoryId={categoryId}
-            category={category}
-            handleInputCategory={handleInputCategory}
-          />
-          <Switch>
-            <Route
-              exact
-              path="/main"
-              render={() => (
-                <Contents
-                  isLogin={isLogin}
-                  token={token}
-                  userInfo={userInfo}
-                  clickedContent={clickedContent}
-                  comments={comments}
-                  contentsList={contentsList}
-                  editBtn={editBtn}
-                  newPost={newPost}
-                  handleContentList={handleContentList}
-                  handleClickedContent={handleClickedContent}
-                  handleResetClickedContent={handleResetClickedContent}
-                  clickNewMessage={clickNewMessage}
-                  clickEditBtn={clickEditBtn}
-                  handleSortList={handleSortList}
-                  handleSearchList={handleSearchList}
-                />
-              )}
-            ></Route>
-            <Route
-              exact
-              path="/main/detail"
-              render={() => (
-                <ContentDetail
-                  isLogin={isLogin}
-                  token={token}
-                  userInfo={userInfo}
-                  clickedContent={clickedContent}
-                  comments={comments}
-                  contentsList={contentsList}
-                  editBtn={editBtn}
-                  newPost={newPost}
-                  handleResetClickedContent={handleResetClickedContent}
-                  clickNewMessage={clickNewMessage}
-                  clickEditBtn={clickEditBtn}
-                  handleSearchList={handleSearchList}
-                />
-              )}
-            ></Route>
-            <Route
-              exact
-              path="/main/post"
-              render={() => (
-                <Post
-                  isLogin={isLogin}
-                  token={token}
-                  userInfo={userInfo}
-                  clickNewMessage={clickNewMessage}
-                />
-              )}
-            ></Route>
-          </Switch>
-          <Custom
-            token={token}
-            userInfo={userInfo}
-            customListOp={customListOp}
-          />
-        </div>
-      </div>
+        {newPost ? <Redirect to="/main/post" /> : ""}
+        <Category
+          id="category"
+          isLogin={isLogin}
+          token={token}
+          userInfo={userInfo}
+          categoryId={categoryId}
+          category={category}
+          handleInputCategory={handleInputCategory}
+        />
+        <Switch>
+          <Route
+            exact
+            path="/main"
+            render={() => (
+              <Contents
+                id="contents"
+                isLogin={isLogin}
+                token={token}
+                userInfo={userInfo}
+                clickedContent={clickedContent}
+                comments={comments}
+                contentsList={contentsList}
+                editBtn={editBtn}
+                newPost={newPost}
+                handleContentList={handleContentList}
+                handleClickedContent={handleClickedContent}
+                handleResetClickedContent={handleResetClickedContent}
+                clickNewMessage={clickNewMessage}
+                clickEditBtn={clickEditBtn}
+                handleSortList={handleSortList}
+                handleSearchList={handleSearchList}
+              />
+            )}
+          ></Route>
+          <Route
+            exact
+            path="/main/detail"
+            render={() => (
+              <ContentDetail
+                id="contentDetail"
+                isLogin={isLogin}
+                token={token}
+                userInfo={userInfo}
+                clickedContent={clickedContent}
+                comments={comments}
+                contentsList={contentsList}
+                editBtn={editBtn}
+                newPost={newPost}
+                handleResetClickedContent={handleResetClickedContent}
+                clickNewMessage={clickNewMessage}
+                clickEditBtn={clickEditBtn}
+                handleSearchList={handleSearchList}
+              />
+            )}
+          ></Route>
+          <Route
+            exact
+            path="/main/post"
+            render={() => (
+              <Post
+                id="post"
+                isLogin={isLogin}
+                token={token}
+                userInfo={userInfo}
+                clickNewMessage={clickNewMessage}
+              />
+            )}
+          ></Route>
+        </Switch>
+        <Custom
+          id="custom"
+          token={token}
+          userInfo={userInfo}
+          customListOp={customListOp}
+        />
+      </Outer>
     );
   }
 }

@@ -1,5 +1,10 @@
 import React from "react";
 import CustomList from "./CustomList";
+import styled from "styled-components";
+
+export const CustomStyle = styled.div`
+  grid-column: 3 / 4;
+`;
 
 class Custom extends React.Component {
   constructor(props) {
@@ -37,7 +42,7 @@ class Custom extends React.Component {
     const { token, userInfo } = this.props;
     const list = Object.keys(this.state.radioGroup);
     return (
-      <div className="container" id="custom">
+      <CustomStyle id="custom">
         <form>
           <div>Custom List</div>
           {list.map((ele) => {
@@ -60,7 +65,7 @@ class Custom extends React.Component {
           token={token}
           userInfo={userInfo}
         />
-      </div>
+      </CustomStyle>
     );
   }
 }

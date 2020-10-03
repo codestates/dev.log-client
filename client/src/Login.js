@@ -86,8 +86,8 @@ class Login extends React.Component {
   //로그인 함수
   handleLogin = () => {
     axios
-      .post("http://localhost:4000/users/login", this.state)
-      // .post("https://devyeon.com/users/login", this.state)
+      //.post("http://localhost:4000/users/login", this.state)
+      .post("https://devyeon.com/users/login", this.state)
       .then((res) => {
         console.log(this.state);
         if (res.status === 200) {
@@ -108,7 +108,8 @@ class Login extends React.Component {
           <InputContainer>
             <img
               id="loginImg"
-              src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAxODA3MDNfMTUy%2FMDAxNTMwNjA0NjkxNjYy.9hb0yxEe8attWVLyMOuKV4IcYIjlAoNH7t71Q1h3mNUg.m1L6H9rvWElrCXgXayG78ONe1FQ3msUJJl8q1Sea6qwg.JPEG.kingmold%2F%25B8%25BB%25C6%25BC%25C1%25EE_%25282%2529.jpg&type=sc960_832"
+              src="dev-log.png"
+              style={{width:"250px", margin:"20px"}}
               alt="깜찍한 사진"
             />
             <h1>Log In</h1>

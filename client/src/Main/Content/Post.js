@@ -1,7 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { Redirect, withRouter } from "react-router-dom";
+import styled from "styled-components";
 axios.defaults.withCredentials = "include";
+
+export const Poststyle = styled.div`
+  grid-column: 2 / 3;
+`;
 
 class Post extends React.Component {
   constructor(props) {
@@ -75,7 +80,7 @@ class Post extends React.Component {
     //수정하기 버튼을 클릭해서 들어왔을때는 취소,수정
 
     return (
-      <div className="post">
+      <Poststyle id="post">
         {this.state.isPost ? <Redirect to="/main" /> : ""}
         <center>
           <select
@@ -149,7 +154,7 @@ class Post extends React.Component {
             </button>
           )}
         </center>
-      </div>
+      </Poststyle>
     );
   }
 }

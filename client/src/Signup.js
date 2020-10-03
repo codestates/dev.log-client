@@ -1,40 +1,40 @@
 import React from "react";
 import { Redirect, withRouter } from "react-router-dom";
-import style from "styled-components";
+import styled from "styled-components";
 import axios from "axios";
 axios.defaults.withCredentials = "include";
 
-const InputContainer = style.div`
+const InputContainer = styled.div`
   width: 600px;
   height: 700px;
   mairgin: 0 auto;
   margin-top: 10vh;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 `;
 
-const InputArea = style.div`
- //정렬 필요
+const InputArea = styled.div`
+  //정렬 필요
 `;
 
-const Input = style.input`
+const Input = styled.input`
   width: 200px;
   height: 30px;
   letter-spacing: 1px;
   text-align: center;
   margin: 0px 10px 10px;
 `;
-const CheckSignupBtn = style.button`
-  color : white;
+const CheckSignupBtn = styled.button`
+  color: white;
   width: 107px;
   height: 38px;
-  background: #02380E;
+  background: #02380e;
   border-radius: 10px;
-  border : none;
+  border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 5px;
 `;
-const SubmitGithubBtn = style.button`
+const SubmitGithubBtn = styled.button`
   color: #fff;
   border: none;
   width: 80px;
@@ -42,26 +42,26 @@ const SubmitGithubBtn = style.button`
   background: #000000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  border : none;
+  border: none;
   margin: 5px;
 `;
-const SubmitNaverBtn = style.button`
+const SubmitNaverBtn = styled.button`
   width: 80px;
   height: 35px;
   font-size: 0.8em;
-  background: #15B439;
+  background: #15b439;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  border : none;
+  border: none;
   margin: 5px;
 `;
-const Button = style.button`
+const Button = styled.button`
   width: 124px;
   height: 35px;
-  background: #F1C40F;
+  background: #f1c40f;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  border : none;
+  border: none;
   margin: 50px 5px 10px;
 `;
 

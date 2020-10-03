@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import styled from "styled-components";
 // import { withRouter, useHistory } from "react-router-dom";
 
 class CommentEntry extends React.Component {

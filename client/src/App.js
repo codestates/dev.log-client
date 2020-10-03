@@ -11,7 +11,7 @@ axios.defaults.withCredentials = "include";
 const GlobalStyle = createGlobalStyle`
 body {
     margin: 0;
-    font-family: "Nanum Pen Script", cursive;
+    font-family: "Nanum Gothic Coding";
   }
 
 `;
