@@ -2,12 +2,12 @@
 CodeStates Immersive 22기 3조 knock knock 팀의 First-Project 입니다.  
 Front - end : 이한슬(팀장), 권수진 
 Back - end : 윤 연, 김종환   
-(server 측 레포는 https://github.com/codestates/dev.log-server 여기입니다)
+(server 측 레포는 [여기](https://github.com/codestates/dev.log-server)입니다)
    
 
 ## Description
 해당 서비스는 개발자 팀의 협업을 위한 개발 기록 웹 서비스입니다. 기본적인 글 작성, 필터링, 검색 기능과 함께 Custom 기능과 함께있습니다.
-자세한 개발과정을 알고 싶다면 wiki를 참고해주세요
+자세한 개발과정을 알고 싶다면 [wiki](https://github.com/codestates/dev.log-server/wiki)를 참고해주세요
 
 ## Getting Start
 
